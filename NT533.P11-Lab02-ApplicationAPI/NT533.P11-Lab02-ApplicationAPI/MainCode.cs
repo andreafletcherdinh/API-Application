@@ -317,7 +317,7 @@ namespace NT533.P11_Lab02_ApplicationAPI
             }
         }
 
-        private void createButton_MouseHover(object sender, EventArgs e) 
+        private void createButton_MouseHover(object sender, EventArgs e)
         {
             createIntanceButton.BackColor = Color.FromArgb(162, 210, 223);
             createIntanceButton.Font = new Font(createIntanceButton.Font, FontStyle.Bold);
@@ -330,7 +330,7 @@ namespace NT533.P11_Lab02_ApplicationAPI
             createIntanceButton.Font = new Font(createIntanceButton.Font, FontStyle.Regular);
         }
 
-        private void createNetworkButton_MouseHover (object sender, EventArgs e)
+        private void createNetworkButton_MouseHover(object sender, EventArgs e)
         {
             createNetworkButton.BackColor = Color.FromArgb(255, 227, 227);
             createNetworkButton.Font = new Font(createNetworkButton.Font, FontStyle.Bold);
@@ -354,10 +354,10 @@ namespace NT533.P11_Lab02_ApplicationAPI
             string networkName = networkNameTextBox.Text.Trim();
             string subnetName = subnetNameTextBox.Text.Trim();
             string networkAddress = networkAddressTextBox.Text.Trim();
-            string staticNetworkAddress = staticNetworkAddressTextBox.Text.Trim();
+            string portAddress = portAddressTextBox.Text.Trim();
 
             // Kiểm tra các trường nhập liệu
-            if (string.IsNullOrEmpty(networkName) || string.IsNullOrEmpty(subnetName) || string.IsNullOrEmpty(networkAddress) || string.IsNullOrEmpty(staticNetworkAddress))
+            if (string.IsNullOrEmpty(networkName) || string.IsNullOrEmpty(subnetName) || string.IsNullOrEmpty(networkAddress) || string.IsNullOrEmpty(portAddress))
             {
                 MessageBox.Show("Please fill in all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -371,7 +371,7 @@ namespace NT533.P11_Lab02_ApplicationAPI
             }
 
             // Gọi hàm tạo mạng với tenantId
-            string result = await CreateNetworkAsync(networkName, subnetName, networkAddress, staticNetworkAddress, tenantId);
+            string result = await CreateNetworkAsync(networkName, subnetName, networkAddress, portAddress, tenantId);
             if (result != null)
             {
                 contentRichTextBox.Text = result;
@@ -511,6 +511,78 @@ namespace NT533.P11_Lab02_ApplicationAPI
         {
             public string id { get; set; }
             public string tenant_id { get; set; }
+        }
+
+        private async Task<string> CreateInstanceAsync(string instanceName, string imageId, string flavorId, string networkId)
+        {
+            try
+            {
+                string url = "https://cloud-compute.uitiot.vn/v2.1/servers";
+                var instanceData = new
+                {
+                    server = new
+                    {
+                        name = instanceName,
+                        imageRef = imageId,
+                        flavorRef = flavorId,
+                        networks = new[]
+                        {
+                    new
+                    {
+                        uuid = networkId
+                    }
+                },
+                        user_data = "I2Nsb3VkLWNvbmZpZwpjaHBhc3N3ZDoKIGxpc3Q6IHwKICAgcm9vdDpyb290CmV4cGlyZTogRmFsc2UKc3NoX3B3YXV0aDogVHJ1ZQ=="
+                    }
+                };
+                var jsonContent = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(instanceData), Encoding.UTF8, "application/json");
+                httpClient.DefaultRequestHeaders.Clear();
+                httpClient.DefaultRequestHeaders.Add("X-Auth-Token", token);
+                HttpResponseMessage response = await httpClient.PostAsync(url, jsonContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsStringAsync();
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    HandleTokenExpired();
+                    return null;
+                }
+                else
+                {
+                    return $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error while creating instance: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        private async void createIntanceButton_Click(object sender, EventArgs e)
+        {
+            string instanceName = nameInstanceTextBox.Text.Trim();
+            string imageId = ((Image)imageComboBox.SelectedItem)?.Id;
+            string flavorId = ((Flavor)flavorComboBox.SelectedItem)?.Id;
+            string networkId = networkIdTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(instanceName) || string.IsNullOrEmpty(imageId) || string.IsNullOrEmpty(flavorId) ||
+                string.IsNullOrEmpty(networkId))
+            {
+                MessageBox.Show("Please fill in all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string result = await CreateInstanceAsync(instanceName, imageId, flavorId, networkId);
+            if (result != null)
+            {
+                contentRichTextBox.Text = result;
+            }
+            else
+            {
+                MessageBox.Show("Failed to create instance!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
