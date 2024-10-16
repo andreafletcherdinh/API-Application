@@ -55,7 +55,7 @@ namespace NT533.P11_Lab02_ApplicationAPI
                 }
             };
 
-            // Send a POST request to the OpenStack API
+            // Gửi 1 yêu cầu của phương thức POST đến API của OpenStack
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -63,20 +63,20 @@ namespace NT533.P11_Lab02_ApplicationAPI
                     var jsonContent = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(loginData), Encoding.UTF8, "application/json");
                     HttpResponseMessage response = await client.PostAsync("https://cloud-identity.uitiot.vn/v3/auth/tokens", jsonContent);
 
-                    // Read the response content
+                    // Đọc nội dung trả về
                     var content = await response.Content.ReadAsStringAsync();
 
-                    // Log the full response for debugging
+                    
                     Debug.WriteLine($"Full API Response: {content}");
 
                     if (response.IsSuccessStatusCode)
                     {
                         string token = response.Headers.GetValues("X-Subject-Token").FirstOrDefault();
 
-                        // Parse JSON response
+                       
                         JObject jsonResponse = JObject.Parse(content);
 
-                        // Extract project ID (tenant ID)
+                        // Lấy id của project (tenant ID)
                         string projectId = jsonResponse["token"]?["project"]?["id"]?.ToString();
 
                         if (string.IsNullOrEmpty(projectId))
