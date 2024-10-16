@@ -39,6 +39,8 @@
             subnetNameLabel = new Label();
             networkNameLabel = new Label();
             groupBox2 = new GroupBox();
+            networkIdTextBox = new TextBox();
+            networkIdLabel = new Label();
             nameInstanceTextBox = new TextBox();
             flavorComboBox = new ComboBox();
             imageComboBox = new ComboBox();
@@ -51,15 +53,16 @@
             listImageButton = new Button();
             listKeypairButton = new Button();
             listFlavorsButton = new Button();
-            networkIdTextBox = new TextBox();
-            networkIdLabel = new Label();
+            groupBox4 = new GroupBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.FromArgb(210, 224, 251);
             groupBox1.Controls.Add(portAddressTextBox);
             groupBox1.Controls.Add(createNetworkButton);
             groupBox1.Controls.Add(portLabel);
@@ -71,11 +74,9 @@
             groupBox1.Controls.Add(networkNameLabel);
             groupBox1.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.FromArgb(21, 78, 91);
-            groupBox1.Location = new Point(10, 16);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Location = new Point(11, 21);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(360, 215);
+            groupBox1.Size = new Size(411, 287);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Network";
@@ -83,20 +84,18 @@
             // portAddressTextBox
             // 
             portAddressTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            portAddressTextBox.Location = new Point(148, 125);
-            portAddressTextBox.Margin = new Padding(3, 2, 3, 2);
+            portAddressTextBox.Location = new Point(169, 167);
             portAddressTextBox.Name = "portAddressTextBox";
-            portAddressTextBox.Size = new Size(206, 24);
+            portAddressTextBox.Size = new Size(235, 29);
             portAddressTextBox.TabIndex = 18;
             // 
             // createNetworkButton
             // 
             createNetworkButton.Font = new Font("Cambria", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             createNetworkButton.ForeColor = Color.Black;
-            createNetworkButton.Location = new Point(10, 166);
-            createNetworkButton.Margin = new Padding(3, 2, 3, 2);
+            createNetworkButton.Location = new Point(11, 221);
             createNetworkButton.Name = "createNetworkButton";
-            createNetworkButton.Size = new Size(344, 34);
+            createNetworkButton.Size = new Size(393, 45);
             createNetworkButton.TabIndex = 17;
             createNetworkButton.Text = "Create";
             createNetworkButton.UseVisualStyleBackColor = true;
@@ -109,37 +108,34 @@
             portLabel.AutoSize = true;
             portLabel.Font = new Font("Cambria", 10.8F);
             portLabel.ForeColor = Color.Black;
-            portLabel.Location = new Point(11, 125);
+            portLabel.Location = new Point(13, 167);
             portLabel.Name = "portLabel";
-            portLabel.Size = new Size(91, 17);
+            portLabel.Size = new Size(113, 21);
             portLabel.TabIndex = 18;
             portLabel.Text = "Port address:";
             // 
             // networkAddressTextBox
             // 
             networkAddressTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            networkAddressTextBox.Location = new Point(149, 88);
-            networkAddressTextBox.Margin = new Padding(3, 2, 3, 2);
+            networkAddressTextBox.Location = new Point(170, 117);
             networkAddressTextBox.Name = "networkAddressTextBox";
-            networkAddressTextBox.Size = new Size(206, 24);
+            networkAddressTextBox.Size = new Size(235, 29);
             networkAddressTextBox.TabIndex = 6;
             // 
             // subnetNameTextBox
             // 
             subnetNameTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            subnetNameTextBox.Location = new Point(149, 60);
-            subnetNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            subnetNameTextBox.Location = new Point(170, 80);
             subnetNameTextBox.Name = "subnetNameTextBox";
-            subnetNameTextBox.Size = new Size(206, 24);
+            subnetNameTextBox.Size = new Size(235, 29);
             subnetNameTextBox.TabIndex = 5;
             // 
             // networkNameTextBox
             // 
             networkNameTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            networkNameTextBox.Location = new Point(149, 33);
-            networkNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            networkNameTextBox.Location = new Point(170, 44);
             networkNameTextBox.Name = "networkNameTextBox";
-            networkNameTextBox.Size = new Size(206, 24);
+            networkNameTextBox.Size = new Size(235, 29);
             networkNameTextBox.TabIndex = 4;
             // 
             // networkAddressLabel
@@ -147,9 +143,9 @@
             networkAddressLabel.AutoSize = true;
             networkAddressLabel.Font = new Font("Cambria", 10.8F);
             networkAddressLabel.ForeColor = Color.Black;
-            networkAddressLabel.Location = new Point(10, 90);
+            networkAddressLabel.Location = new Point(11, 120);
             networkAddressLabel.Name = "networkAddressLabel";
-            networkAddressLabel.Size = new Size(115, 17);
+            networkAddressLabel.Size = new Size(142, 21);
             networkAddressLabel.TabIndex = 2;
             networkAddressLabel.Text = "Network address";
             // 
@@ -158,9 +154,9 @@
             subnetNameLabel.AutoSize = true;
             subnetNameLabel.Font = new Font("Cambria", 10.8F);
             subnetNameLabel.ForeColor = Color.Black;
-            subnetNameLabel.Location = new Point(10, 62);
+            subnetNameLabel.Location = new Point(11, 83);
             subnetNameLabel.Name = "subnetNameLabel";
-            subnetNameLabel.Size = new Size(88, 17);
+            subnetNameLabel.Size = new Size(111, 21);
             subnetNameLabel.TabIndex = 1;
             subnetNameLabel.Text = "Subnet name";
             // 
@@ -169,14 +165,15 @@
             networkNameLabel.AutoSize = true;
             networkNameLabel.Font = new Font("Cambria", 10.8F);
             networkNameLabel.ForeColor = Color.Black;
-            networkNameLabel.Location = new Point(10, 35);
+            networkNameLabel.Location = new Point(11, 47);
             networkNameLabel.Name = "networkNameLabel";
-            networkNameLabel.Size = new Size(101, 17);
+            networkNameLabel.Size = new Size(124, 21);
             networkNameLabel.TabIndex = 0;
             networkNameLabel.Text = "Network name";
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.FromArgb(254, 249, 217);
             groupBox2.Controls.Add(networkIdTextBox);
             groupBox2.Controls.Add(networkIdLabel);
             groupBox2.Controls.Add(nameInstanceTextBox);
@@ -188,52 +185,65 @@
             groupBox2.Controls.Add(imageLabel);
             groupBox2.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.FromArgb(21, 78, 91);
-            groupBox2.Location = new Point(10, 235);
-            groupBox2.Margin = new Padding(3, 2, 3, 2);
+            groupBox2.Location = new Point(11, 313);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(360, 274);
+            groupBox2.Size = new Size(411, 294);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Instance";
             // 
+            // networkIdTextBox
+            // 
+            networkIdTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            networkIdTextBox.Location = new Point(169, 186);
+            networkIdTextBox.Name = "networkIdTextBox";
+            networkIdTextBox.Size = new Size(235, 29);
+            networkIdTextBox.TabIndex = 21;
+            // 
+            // networkIdLabel
+            // 
+            networkIdLabel.AutoSize = true;
+            networkIdLabel.Font = new Font("Cambria", 10.8F);
+            networkIdLabel.ForeColor = Color.Black;
+            networkIdLabel.Location = new Point(13, 186);
+            networkIdLabel.Name = "networkIdLabel";
+            networkIdLabel.Size = new Size(99, 21);
+            networkIdLabel.TabIndex = 20;
+            networkIdLabel.Text = "Network ID";
+            // 
             // nameInstanceTextBox
             // 
             nameInstanceTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nameInstanceTextBox.Location = new Point(148, 105);
-            nameInstanceTextBox.Margin = new Padding(3, 2, 3, 2);
+            nameInstanceTextBox.Location = new Point(169, 140);
             nameInstanceTextBox.Name = "nameInstanceTextBox";
-            nameInstanceTextBox.Size = new Size(206, 24);
+            nameInstanceTextBox.Size = new Size(235, 29);
             nameInstanceTextBox.TabIndex = 18;
             // 
             // flavorComboBox
             // 
             flavorComboBox.Font = new Font("Cambria", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             flavorComboBox.FormattingEnabled = true;
-            flavorComboBox.Location = new Point(149, 72);
-            flavorComboBox.Margin = new Padding(3, 2, 3, 2);
+            flavorComboBox.Location = new Point(170, 96);
             flavorComboBox.Name = "flavorComboBox";
-            flavorComboBox.Size = new Size(206, 25);
+            flavorComboBox.Size = new Size(235, 30);
             flavorComboBox.TabIndex = 14;
             // 
             // imageComboBox
             // 
             imageComboBox.Font = new Font("Cambria", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             imageComboBox.FormattingEnabled = true;
-            imageComboBox.Location = new Point(149, 40);
-            imageComboBox.Margin = new Padding(3, 2, 3, 2);
+            imageComboBox.Location = new Point(170, 53);
             imageComboBox.Name = "imageComboBox";
-            imageComboBox.Size = new Size(206, 25);
+            imageComboBox.Size = new Size(235, 30);
             imageComboBox.TabIndex = 13;
             // 
             // createIntanceButton
             // 
-            createIntanceButton.Font = new Font("Cambria", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createIntanceButton.Font = new Font("Cambria", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             createIntanceButton.ForeColor = Color.Black;
-            createIntanceButton.Location = new Point(10, 218);
-            createIntanceButton.Margin = new Padding(3, 2, 3, 2);
+            createIntanceButton.Location = new Point(14, 235);
             createIntanceButton.Name = "createIntanceButton";
-            createIntanceButton.Size = new Size(344, 40);
+            createIntanceButton.Size = new Size(391, 42);
             createIntanceButton.TabIndex = 12;
             createIntanceButton.Text = "Create";
             createIntanceButton.UseVisualStyleBackColor = true;
@@ -246,9 +256,9 @@
             nameLabel.AutoSize = true;
             nameLabel.Font = new Font("Cambria", 10.8F);
             nameLabel.ForeColor = Color.Black;
-            nameLabel.Location = new Point(10, 108);
+            nameLabel.Location = new Point(11, 144);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(44, 17);
+            nameLabel.Size = new Size(55, 21);
             nameLabel.TabIndex = 10;
             nameLabel.Text = "Name";
             // 
@@ -257,9 +267,9 @@
             flavorLabel.AutoSize = true;
             flavorLabel.Font = new Font("Cambria", 10.8F);
             flavorLabel.ForeColor = Color.Black;
-            flavorLabel.Location = new Point(10, 78);
+            flavorLabel.Location = new Point(11, 104);
             flavorLabel.Name = "flavorLabel";
-            flavorLabel.Size = new Size(55, 17);
+            flavorLabel.Size = new Size(68, 21);
             flavorLabel.TabIndex = 9;
             flavorLabel.Text = "Flavors";
             // 
@@ -268,33 +278,32 @@
             imageLabel.AutoSize = true;
             imageLabel.Font = new Font("Cambria", 10.8F);
             imageLabel.ForeColor = Color.Black;
-            imageLabel.Location = new Point(10, 46);
+            imageLabel.Location = new Point(11, 61);
             imageLabel.Name = "imageLabel";
-            imageLabel.Size = new Size(46, 17);
+            imageLabel.Size = new Size(58, 21);
             imageLabel.TabIndex = 8;
             imageLabel.Text = "Image";
             // 
             // groupBox3
             // 
+            groupBox3.BackColor = Color.FromArgb(222, 229, 212);
             groupBox3.Controls.Add(contentRichTextBox);
             groupBox3.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.ForeColor = Color.FromArgb(21, 78, 91);
-            groupBox3.Location = new Point(375, 16);
-            groupBox3.Margin = new Padding(3, 2, 3, 2);
+            groupBox3.Location = new Point(429, 21);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 2, 3, 2);
-            groupBox3.Size = new Size(710, 556);
+            groupBox3.Size = new Size(811, 741);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "Log";
             // 
             // contentRichTextBox
             // 
-            contentRichTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            contentRichTextBox.Location = new Point(5, 28);
-            contentRichTextBox.Margin = new Padding(3, 2, 3, 2);
+            contentRichTextBox.BackColor = Color.FromArgb(142, 172, 205);
+            contentRichTextBox.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            contentRichTextBox.Location = new Point(6, 37);
             contentRichTextBox.Name = "contentRichTextBox";
-            contentRichTextBox.Size = new Size(699, 528);
+            contentRichTextBox.Size = new Size(798, 735);
             contentRichTextBox.TabIndex = 0;
             contentRichTextBox.Text = "";
             // 
@@ -302,10 +311,9 @@
             // 
             listImageButton.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listImageButton.ForeColor = Color.Black;
-            listImageButton.Location = new Point(13, 513);
-            listImageButton.Margin = new Padding(3, 2, 3, 2);
+            listImageButton.Location = new Point(13, 49);
             listImageButton.Name = "listImageButton";
-            listImageButton.Size = new Size(108, 40);
+            listImageButton.Size = new Size(123, 53);
             listImageButton.TabIndex = 4;
             listImageButton.Text = "List images";
             listImageButton.UseVisualStyleBackColor = true;
@@ -317,10 +325,9 @@
             // 
             listKeypairButton.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listKeypairButton.ForeColor = Color.Black;
-            listKeypairButton.Location = new Point(127, 513);
-            listKeypairButton.Margin = new Padding(3, 2, 3, 2);
+            listKeypairButton.Location = new Point(142, 49);
             listKeypairButton.Name = "listKeypairButton";
-            listKeypairButton.Size = new Size(114, 40);
+            listKeypairButton.Size = new Size(263, 53);
             listKeypairButton.TabIndex = 6;
             listKeypairButton.Text = "List keypairs";
             listKeypairButton.UseVisualStyleBackColor = true;
@@ -332,10 +339,9 @@
             // 
             listFlavorsButton.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listFlavorsButton.ForeColor = Color.Black;
-            listFlavorsButton.Location = new Point(247, 513);
-            listFlavorsButton.Margin = new Padding(3, 2, 3, 2);
+            listFlavorsButton.Location = new Point(14, 121);
             listFlavorsButton.Name = "listFlavorsButton";
-            listFlavorsButton.Size = new Size(122, 40);
+            listFlavorsButton.Size = new Size(390, 53);
             listFlavorsButton.TabIndex = 5;
             listFlavorsButton.Text = "List flavors";
             listFlavorsButton.UseVisualStyleBackColor = true;
@@ -343,37 +349,31 @@
             listFlavorsButton.MouseLeave += listFlavorsButton_MouseLeave;
             listFlavorsButton.MouseHover += listFlavorsButton_MouseHover;
             // 
-            // networkIdTextBox
+            // groupBox4
             // 
-            networkIdTextBox.Font = new Font("Cambria", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            networkIdTextBox.Location = new Point(148, 171);
-            networkIdTextBox.Margin = new Padding(3, 2, 3, 2);
-            networkIdTextBox.Name = "networkIdTextBox";
-            networkIdTextBox.Size = new Size(206, 24);
-            networkIdTextBox.TabIndex = 21;
-            // 
-            // networkIdLabel
-            // 
-            networkIdLabel.AutoSize = true;
-            networkIdLabel.Font = new Font("Cambria", 10.8F);
-            networkIdLabel.ForeColor = Color.Black;
-            networkIdLabel.Location = new Point(11, 171);
-            networkIdLabel.Name = "networkIdLabel";
-            networkIdLabel.Size = new Size(82, 17);
-            networkIdLabel.TabIndex = 20;
-            networkIdLabel.Text = "Network ID";
+            groupBox4.BackColor = Color.FromArgb(228, 192, 135);
+            groupBox4.Controls.Add(listFlavorsButton);
+            groupBox4.Controls.Add(listImageButton);
+            groupBox4.Controls.Add(listKeypairButton);
+            groupBox4.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox4.Location = new Point(11, 613);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(411, 180);
+            groupBox4.TabIndex = 7;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "List";
             // 
             // APP
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1096, 604);
+            BackColor = Color.White;
+            ClientSize = new Size(1253, 805);
+            Controls.Add(groupBox4);
             Controls.Add(groupBox3);
-            Controls.Add(listFlavorsButton);
-            Controls.Add(listKeypairButton);
-            Controls.Add(listImageButton);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "APP";
             Text = "Main Application";
             Load += APP_Load;
@@ -382,6 +382,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -414,5 +415,6 @@
         private TextBox portAddressTextBox;
         private TextBox networkIdTextBox;
         private Label networkIdLabel;
+        private GroupBox groupBox4;
     }
 }
