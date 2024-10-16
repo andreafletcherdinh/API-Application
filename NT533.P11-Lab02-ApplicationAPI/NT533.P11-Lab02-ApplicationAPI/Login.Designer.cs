@@ -53,20 +53,20 @@
             // tittleLabel
             // 
             tittleLabel.AutoSize = true;
-            tittleLabel.Font = new Font("Cambria", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tittleLabel.Font = new Font("Cambria", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tittleLabel.ForeColor = Color.FromArgb(4, 120, 198);
-            tittleLabel.Location = new Point(40, 125);
+            tittleLabel.Location = new Point(173, 108);
             tittleLabel.Name = "tittleLabel";
-            tittleLabel.Size = new Size(426, 47);
+            tittleLabel.Size = new Size(154, 55);
             tittleLabel.TabIndex = 1;
-            tittleLabel.Text = "Log in to your account";
+            tittleLabel.Text = "Log in";
             // 
             // welcomeLabel
             // 
             welcomeLabel.AutoSize = true;
             welcomeLabel.Font = new Font("Cambria", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            welcomeLabel.ForeColor = Color.FromArgb(124, 169, 201);
-            welcomeLabel.Location = new Point(56, 188);
+            welcomeLabel.ForeColor = Color.FromArgb(67, 121, 242);
+            welcomeLabel.Location = new Point(64, 172);
             welcomeLabel.Name = "welcomeLabel";
             welcomeLabel.Size = new Size(387, 22);
             welcomeLabel.TabIndex = 2;
@@ -106,7 +106,7 @@
             // loginButton
             // 
             loginButton.Font = new Font("Cambria", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginButton.Location = new Point(46, 617);
+            loginButton.Location = new Point(40, 617);
             loginButton.Margin = new Padding(3, 4, 3, 4);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(411, 60);
@@ -130,6 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1050, 843);
             Controls.Add(projectNameTextBox);
             Controls.Add(loginButton);
